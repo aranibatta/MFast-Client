@@ -1,0 +1,15 @@
+
+5/15/2015
+* Final Commit for Arani Bhattacharyay
+* Fixed Database bugs and patched new client for administrators
+* Added Functionality for local client on Kinect
+* Added Functionality restrictions depending on classification
+* Established new site structure and ThinClient setup!
+
+
+10/16/2014
+* Added option for showing current results
+* Fixed default selection on adding new patient
+
+9/10/2014
+* Adding option for low functional

@@ -1,0 +1,34 @@
+# This is not valid anymore....
+
+
+
+INSERT INTO mfast.therapist (firstName, lastName, userName, password) 
+	VALUES ('Therapist1', 'Doc.', 'therapist1', 'therapist1');
+INSERT INTO mfast.therapist (firstName, lastName, userName, password) 
+	VALUES ('Therapist2', 'Doc.', 'therapist2', 'therapist2');
+INSERT INTO mfast.therapist (firstName, lastName, userName, password) 
+	VALUES ('Therapist3', 'Doc.', 'therapist3', 'therapist3');
+INSERT INTO mfast.therapist (firstName, lastName, userName, password) 
+	VALUES ('Therapist4', 'Doc.', 'therapist4', 'therapist4');
+
+
+INSERT INTO mfast.patient (firstName, lastName, DOB, gender, therapistId, leftArmLength, rightArmLength, handDominance, patientGroupId, customPatientId, rightStern2acJointLength, leftStern2acJointLength, rightUpperArmLength, leftUpperArmLength, ulnarLength, height, weight, rightForearmLength, leftForearmLength) 
+	VALUES ('p1', 'p1', '2014-04-04 00:00:00.0', 'male', 1, 2.0, 3.0, 'left', 1, '-1', 2.0, 2.0, 3.0, 2.0, 2.0, 28.0, 14.0, 2.0, 3.0);
+INSERT INTO mfast.patient (firstName, lastName, DOB, gender, therapistId, leftArmLength, rightArmLength, handDominance, patientGroupId, customPatientId, rightStern2acJointLength, leftStern2acJointLength, rightUpperArmLength, leftUpperArmLength, ulnarLength, height, weight, rightForearmLength, leftForearmLength) 
+	VALUES ('Anki', 'Reddy', '2014-04-10 00:00:00.0', 'male', 1, 2.0, 2.0, 'left', 1, '-1', 2.0, 2.0, 2.0, 2.0, 2.0, 24.0, 10.0, 2.0, 2.0);
+INSERT INTO mfast.patient (firstName, lastName, DOB, gender, therapistId, leftArmLength, rightArmLength, handDominance, patientGroupId, customPatientId, rightStern2acJointLength, leftStern2acJointLength, rightUpperArmLength, leftUpperArmLength, ulnarLength, height, weight, rightForearmLength, leftForearmLength) 
+	VALUES ('eeeeeee', 'rrrrrrrr', '2014-04-24 00:00:00.0', 'female', 1, 88.0, 99.0, 'left', 1, '-1', 44.0, 55.0, 99.0, 88.0, 33.0, 30.0, 50.0, 66.0, 77.0);
+INSERT INTO mfast.patient (firstName, lastName, DOB, gender, therapistId, leftArmLength, rightArmLength, handDominance, patientGroupId, customPatientId, rightStern2acJointLength, leftStern2acJointLength, rightUpperArmLength, leftUpperArmLength, ulnarLength, height, weight, rightForearmLength, leftForearmLength) 
+	VALUES ('zzzzz', 'zzzzz', '2014-05-14 00:00:00.0', 'male', 1, 2.0, 2.0, 'left', 1, 'custom-1', 3.0, 3.0, 2.0, 2.0, 3.0, 65.0, 147.0, 3.0, 2.0);
+INSERT INTO mfast.patient (firstName, lastName, DOB, gender, therapistId, leftArmLength, rightArmLength, handDominance, patientGroupId, customPatientId, rightStern2acJointLength, leftStern2acJointLength, rightUpperArmLength, leftUpperArmLength, ulnarLength, height, weight, rightForearmLength, leftForearmLength) 
+	VALUES ('zzzzz', 'zzzzz', '2014-05-14 00:00:00.0', 'male', 1, 2.0, 2.0, 'left', 1, 'custom-1', 3.0, 3.0, 2.0, 2.0, 3.0, 65.0, 147.0, 3.0, 2.0);
+
+
+INSERT INTO mfast.patientgroup (groupName, groupDescription) 
+	VALUES ('Group-1', 'Blah');
+INSERT INTO mfast.patientgroup (groupName, groupDescription) 
+	VALUES ('Group-2', NULL);
+INSERT INTO mfast.patientgroup (groupName, groupDescription) 
+	VALUES ('Group-3', NULL);
+INSERT INTO mfast.patientgroup (groupName, groupDescription) 
+	VALUES ('Group-4', NULL);

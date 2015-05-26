@@ -1,0 +1,1 @@
+This folder contains SQL scripts needed to create the database and enter default data.

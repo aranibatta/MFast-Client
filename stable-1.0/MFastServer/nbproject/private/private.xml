@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="9">
+        <file>
+            <url>web/main.jsp</url>
+            <bookmark id="7">
+                <name/>
+                <line>156</line>
+                <key/>
+            </bookmark>
+            <bookmark id="8">
+                <name/>
+                <line>426</line>
+                <key/>
+            </bookmark>
+            <bookmark id="9">
+                <name/>
+                <line>505</line>
+                <key/>
+            </bookmark>
+            <bookmark id="5">
+                <name/>
+                <line>835</line>
+                <key/>
+            </bookmark>
+            <bookmark id="6">
+                <name/>
+                <line>886</line>
+                <key/>
+            </bookmark>
+        </file>
+    </editor-bookmarks>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/C:/Users/Gregorij/Documents/Visual%20Studio/KINECT/MFast-Server/MFastServer/src/java/com/mfast/evaluations/ClientEvaluationRequest.java</file>
+            <file>file:/C:/Users/Gregorij/Documents/Visual%20Studio/KINECT/MFast-Server/MFastServer/web/main.html</file>
+            <file>file:/C:/Users/Gregorij/Documents/Visual%20Studio/KINECT/MFast-Server/MFastServer/web/main.jsp</file>
+            <file>file:/C:/Users/Gregorij/Documents/Visual%20Studio/KINECT/MFast-Server/MFastServer/src/java/com/mfast/evaluations/DCAppSession.java</file>
+            <file>file:/C:/Users/Gregorij/Documents/Visual%20Studio/KINECT/MFast-Server/MFastServer/src/java/com/mfast/login/LoginManager.java</file>
+            <file>file:/C:/Users/Gregorij/Documents/Visual%20Studio/KINECT/MFast-Server/MFastServer/src/java/com/mfast/common/DBConnection.java</file>
+        </group>
+    </open-files>
+</project-private>

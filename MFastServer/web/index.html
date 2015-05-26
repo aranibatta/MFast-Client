@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Kinect Motion and Function Assessment</title>
+        <link href="css/redmond/jquery-ui-1.9.2.custom.css" rel="stylesheet">
+        <link type="text/css" href="development-bundle/themes/base/jquery.ui.selectmenu.css" rel="stylesheet" />
+
+        <script src="js/jquery-1.8.3.js"></script>
+        <script src="js/jquery-ui-1.9.2.custom.js"></script>
+        <script type="text/javascript" src="development-bundle/ui/jquery.ui.selectmenu.js"></script>
+        <script type="text/javascript" src="mfast.js"></script>
+        <script>
+            
+           
+        function showMainWindow(tid, tname, lid, lname, sid) {
+            window.location = "main.jsp?tid=" + tid + "&tname=" + tname + "&lid=" + lid + "&lname=" + lname + "&sid=" + sid;
+        }
+
+        $( window ).load(function() {
+
+            $.get('defaults.txt', function(data) {
+            var obj = jQuery.parseJSON(data);
+            $("#site_id").val(obj.siteId);
+            });
+        });
+            
+        $(function () {
+                
+                $("input").bind("keydown", function (event) {
+                    // track enter key
+                    var keycode = (event.keyCode ? event.keyCode : (event.which ? event.which : event.charCode));
+                    if (keycode === 13) { // keycode for enter key
+                        // force the 'Enter Key' to implicitly click the Update button
+                        $("#login_button").click();
+                        return false;
+                    } else {
+                        return true;
+                    }
+                }); // end of function
+
+                $("#error_message").hide();
+                $("#login_button").button();
+
+                $("#login_button").click(function () {
+                    $("#error_message").hide();
+                    var postData = {
+                        "locationName": $("#site_id").val(),
+                        "loginName": $("#user_name").val(),
+                        "password": $("#password").val()
+                    };
+
+                    $.ajax({
+                        url: therapistLoginURL,
+                        type: 'POST',
+                        data: JSON.stringify(postData),
+                        contentType: 'text/plain',
+                        dataType: 'json',
+                        async: false,
+                        success: function (msg) {
+                            //alert(JSON.stringify(msg));
+                            if (msg['requestStatus'] === true) {
+                                //$.cookie(msg['therapistId'] + "-cookie", 1);
+                                showMainWindow(msg['therapistId'], msg['therapistFirstName'] + " " + msg['therapistLastName'], msg['locationId'], msg['locationName'], msg['loginSessionId']);
+                            } else {
+                                alert($("#error_message_text").html());
+                                $("#error_message_text").empty();
+                                $("#error_message_text").html("<strong>Error: </strong>" + msg["msg"]);
+                                $("#error_message").show(100);
+                            }
+                        },
+                        error: function (xhr, ajaxOptions, thrownError) {
+                            $("#error_message_text").empty();
+                            $("#error_message_text").html("<strong>Error: </strong>" + thrownError);
+                            $("#error_message").show(100);
+                        }
+
+                    });
+                });
+            });
+        </script>
+
+        <style type="text/css">
+            <!--
+            html, body, #tbl_wrap { height: 100%; width: 100%; padding: 0; margin: 0; }
+            #td_wrap { vertical-align: middle; text-align: center; }
+            -->
+        </style>
+
+        <style>
+
+            .ui-slider-tick-mark1{
+                display:inline-block;
+                width:2px;
+                background:gray;
+                height:2px;
+                position:absolute;
+                top:12px;
+            }
+
+            .ui-slider-tick-mark2{
+                display:inline-block;
+                width:2px;
+                background:red;
+                height:0px;
+                position:absolute;
+                top:15px;
+                margin-left:-2px;
+            }
+
+            fieldset { border:0; }
+            label,select,.ui-select-menu { float: left; margin-right: 10px; }
+            select { width: 200px; }
+            .wrap ul.ui-selectmenu-menu-popup li a { font-weight: bold; }
+
+            body{
+                font: 62.5% "Trebuchet MS", sans-serif;
+                margin: 10px;
+                backgorund: #ff0000;
+            }
+            table {
+                border-width: 1px 1px 1px 1px;
+                border-style: none;
+                border-spacing: 0px;
+            }
+            .demoHeaders {
+                margin-top: 2em;
+            }
+            #dialog-link {
+                padding: .4em 1em .4em 20px;
+                text-decoration: none;
+                position: relative;
+            }
+            #dialog-link span.ui-icon {
+                margin: 0 5px 0 0;
+                position: absolute;
+                left: .2em;
+                top: 50%;
+                margin-top: -8px;
+            }
+            #icons {
+                margin: 0;
+                padding: 0;
+            }
+            #icons li {
+                margin: 2px;
+                position: relative;
+                padding: 4px 0;
+                cursor: pointer;
+                float: left;
+                list-style: none;
+            }
+            #icons span.ui-icon {
+                float: left;
+                margin: 0 4px;
+            }
+            .fakewindowcontain .ui-widget-overlay {
+                position: absolute;
+            }
+            .user_button  { width: 100px; }
+        </style>
+    </head>
+    <body style="background:#3D99C8; align:center;">
+
+
+        <div style="background:#3D99C8;">
+            <table id="tbl_wrap"><tbody><tr><td id="td_wrap">
+                            <!-- START: Anything between these wrapper comment lines will be centered -->
+                            <div style="border: 0px solid black; display: inline-block;">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td style="background:#3D99C8; padding: 1px 1px 1px 1px;" colspan="3">
+                                                <table width="100%"><tbody><tr>
+                                                            <td width="20%"> <img width="150" height="120" src="logo.png"> </td>
+                                                            <td width="80%" style="vertical-align: bottom; color: #FFFFFF"><h1>MFAsT - Kinect Motion and Function Assessment</h1></td>
+                                                        </tr>
+                                                    </tbody></table>
+                                            </td>
+                                        </tr>
+                                        <tr><td colspan="3">&nbsp;</td></tr>
+                                        <tr style="background:#fff4de; padding: 1px 1px 1px 1px;">
+                                            <td style="width: 100px;"></td><td style="width: 20%;"><h3 class="demoHeaders" style="text-align: left;">Site Id:</h3></td>
+                                            <td style="text-align: left;
+                                                padding-top: 10px;
+                                                "><input id="site_id" type="text"></td>
+                                        </tr>                                        
+                                        <tr style="background:#fff4de; padding: 1px 1px 1px 1px;">
+                                            <td></td>
+                                            <td><h3 class="demoHeaders" style="text-align: left;">User Name:</h3></td>
+                                            <td style="text-align: left;padding-top: 10px;"><input id="user_name" type="text"></td>
+                                        </tr>
+                                        <tr style="background:#fff4de; padding: 1px 1px 1px 1px;">
+                                            <td></td>
+                                            <td><h3 class="demoHeaders" style="text-align: left;">Password:</h3></td>
+                                            <td style="text-align: left;padding-top: 10px;"><input id="password" type="password"></td>
+                                        </tr>
+                                        <tr style="background:#fff4de; padding: 1px 1px 1px 1px;">
+                                            <td></td>
+                                            <td>
+                                                &nbsp;
+
+
+                                            </td>
+                                            <td style="background:#fff4de; padding: 10px 10px 10px 10px;" align="right"><input type="submit" value="Login" class="user_button ui-button ui-widget ui-state-default ui-corner-all" id="login_button" role="button" aria-disabled="false"></td>
+                                        </tr>
+                                        <tr><td colspan="2">
+
+                                                <div id="error_message" class="ui-widget" style="display: none;">
+                                                    <div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+                                                        <p>
+                                                            <span class="ui-icon ui-icon-alert" style="float: left; margin-right: .3em;"></span>
+                                                            <span id="error_message_text">
+                                                                <strong>Error: </strong> Invalid username or password.</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                            </td></tr>
+                                    </tbody>
+                                </table>
+
+                            </div>
+
+                            <!-- END: Anything between these wrapper comment lines will be centered -->
+                        </td></tr></tbody></table>
+        </div>
+    </body>
+</html>

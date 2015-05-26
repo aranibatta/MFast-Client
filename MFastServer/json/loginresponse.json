@@ -1,0 +1,44 @@
+
+{
+    "abcd": [
+        {
+            "requestType": 1,
+            "therapistId": 1,
+            "patient": {
+                "firstName": "hjhj",
+                "lastName": "hjhjh",
+                "DOB": "04/10/2014",
+                "gender": "male",
+                "leftArmLength": 2,
+                "rightArmLength": 2,
+                "handDominance": "left",
+                "patientGroupId": "group1",
+                "customPatientId": -1,
+                "rightStern2acJointLength": 2,
+                "leftStern2acJointLength": 2,
+                "rightUpperArmLength": 2,
+                "leftUpperArmLength": 2,
+                "height": 25,
+                "weight": 11,
+                "rightForearmLength": 2,
+                "leftForearmLength": 2,
+                "rightArmLength": 2,
+                "leftArmLength": 2                
+            }
+        },
+        {
+            "requestStatus": false,
+            "msg": "Internal Server Error: com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`mfast`.`patient`, CONSTRAINT `patientGroupId` FOREIGN KEY (`patientGroupId`) REFERENCES `patientGroup` (`patientGroupId`) ON UPDATE CASCADE)",
+            "therapistId": 0,
+            "patientId": 0,
+            "patientGroupId": 0,
+            "sessionId": 0,
+            "errorId": 0,
+            "loginSessionId": 0
+        }
+
+
+
+
+    ]
+}

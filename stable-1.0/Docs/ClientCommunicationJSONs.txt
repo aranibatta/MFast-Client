@@ -1,0 +1,201 @@
+// Therapist Login JSON
+URL: http://localhost:8084/FivePlusServer/webresources/therapistlogin
+{
+    "loginName" : "vjain",
+    "password" : "password"
+}
+
+// Success response JSON
+{
+    "msg" : "Success",
+    "status" : true,
+    "therapistId" : 2034, // to be used with every evaluation request going forward 
+}
+
+// Error response JSON
+{
+    "msg" : "Incorrect user name or password",
+    "status" : false,
+    "errorId" : 1000
+}
+
+
+--------------------------------------------
+// Therapist Logout JSON
+URL: http://localhost:8084/FivePlusServer/webresources/Therapistlogout
+{
+    "therapistId" : 1,
+    "loginSessionId" : 2
+}
+
+// Success response JSON
+{
+    "msg" : "User logged out successfully",
+    "status" : true,
+}
+
+--------------------------------------------
+// Get patient group list JSON
+http://localhost:8084/FivePlusServer/webresources/patientGroupManager
+
+{
+    "requestType" : 2,
+    "loginSessionId" : 1
+}
+
+// success response
+{
+	
+}
+--------------------------------------------
+// Get patient list JSON
+http://localhost:8084/FivePlusServer/webresources/patientmanager
+
+{
+    "requestType" : 2,  
+    "patientGroupId" : 1,
+    "loginSessionId" : 1
+}
+
+// success response
+{
+    "patientList" : [
+        {
+            "patientId" : 1234,
+            "firstName" : "Saqib",
+            "lastName" : "Ahmad"
+        },
+        {
+            "patientId" : 1235,
+            "firstName" : "Anki",
+            "lastName" : "Nilaturu"
+        }
+    ]
+}   
+
+------------------------------------
+// Add patient JSON
+http://localhost:8084/FivePlusServer/webresources/patientmanager
+
+{
+    "requestType" : 1, // add patient
+    "therapistId" : 1,
+    "loginSessionId" : 1,
+    "patient" : {
+        "firstName" : "Anki",
+        "lastName" : "Nelaturu",
+        "DOB" : "08/14/1977",
+        "gender" : "male",
+        "leftArmLength" : 32,
+        "rightArmLength" : 32,
+        "handDominance"  : "right",
+        "patientGroupId" : 1, 
+        "customPatientId" : "anelaturu",
+        "rightStern2acJointLength" : 15,
+        "leftStern2acJointLength" : 15,
+        "rightUpperArmLength" : 15, 
+        "leftUpperArmLength" : 15, 
+        "ulnarLength" : 15,
+        "height": 5.8,
+        "weight" : 180,
+        "rightForearmLength" : 15,
+        "leftForearmLength" : 15
+    }
+}
+
+{"requestType":1,"therapistId":1,"patient":{"firstName":"zzzzz","lastName":"zzzzz","DOB":"05/14/2014","customPatientId":"custom-1","gender":"male","leftArmLength":2,"rightArmLength":2,"handDominance":"left","comments":"aaa\nbbbb\ncccccc","patientGroupId":1,"rightStern2acJointLength":3,"leftStern2acJointLength":3,"rightUpperArmLength":2,"leftUpperArmLength":2,"ulnarLength":3,"height":65,"weight":147,"rightForearmLength":3,"leftForearmLength":2}}
+
+
+// Success response JSON
+{
+    "msg" : "Patient Added Successfully",
+    "status" : true,
+    "patientId" : 1234  
+}
+
+
+------------------------------------
+// get patient info JSON
+http://localhost:8084/FivePlusServer/webresources/patientmanager
+
+{
+    "requestType" : 3, // get patient info for patient 
+    "patientId" : 1234,
+    "loginSessionId" : 1
+}
+
+// Success response JSON
+{
+    "patient" : {
+        "patientId" : 1234,
+        "firstName" : "Saqib",
+        "lastName" : "Ahmad",
+        "DOB" : "08/14/1974",
+        "gender" : "male",
+        "leftArmLength" : 32,
+        "rightArmLength" : 32,
+        "handDominance"  : "right",
+        "therapistId : 1234,
+    }
+}
+
+---------------------------------------------
+
+// Evaluation Request JSON
+URL: http://localhost:8084/FivePlusServer/webresources/EvaluationRequest
+{
+    "requestType" : 1, // indicates whether to record or only test
+    "patientId" : 1,
+    "testId" : 2, 
+    "level" : 0, // patient sitting or standing (hi/low)
+    "weight" : 10.5, // weight the patient is holding
+    "clientVersion" : 1.0,
+    "therapistId" : 1,
+    "loginSessionId" : 1
+}
+
+// Success response JSON
+{
+    "msg" : "Running requested Evaluation",
+    "status" : true,
+    "sessionId" : 2034, // to be used to ping the server for request status
+    "loginSessionId" : 1
+}
+
+// Error response JSON
+
+{
+    "msg" : "Error message",
+    "status" : false,
+    "errorId" : 1000
+}
+
+----------------------------------------------------------------------
+// Check Evaluation Request Status JSON
+URL: http://localhost:8084/FivePlusServer/webresources/CheckSessionStatus
+{
+    "patientId" : 1,
+    "sessionId" : 6, 
+    "loginSessionId" : 6
+}
+
+// Response
+{
+    "sessionId":6,
+    "status":false
+}
+
+----------------------------------------------------------------------
+// delete Evaluation session JSON
+URL: http://localhost:8084/FivePlusServer/webresources/DeleteEvaluationSession
+{
+    "sessionId" : 6, 
+    "loginSessionId" : 6
+}
+
+// Response
+{
+    "sessionId":6,
+    "status":false
+}
+
